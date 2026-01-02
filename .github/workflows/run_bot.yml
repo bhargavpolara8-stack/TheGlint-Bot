@@ -1,0 +1,17 @@
+name: Run My Bot
+on:
+  workflow_dispatch: 
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install Requests
+        run: pip install requests
+      - name: Run Script
+        run: python scraper.py
